@@ -1,0 +1,19 @@
+{
+  "name": "jeli2782-tracker-1",
+  "version": "1.0.0",
+  "description": "Jeli2782 tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJSLI/jeli2782-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JJSLI/jeli2782-tracker/issues"
+  },
+  "homepage": "https://github.com/JJSLI/jeli2782-tracker#readme"
+}

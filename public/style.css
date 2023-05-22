@@ -1,0 +1,27 @@
+.square {
+    width: 60px;
+    height: 60px;
+    display: flex; justify-content: center; align-items: center; font-size: 36px;
+    }
+    .white {
+    background-color: #f0d9b5;
+    }
+    .black {
+    background-color: #b58863;
+    } </style>
+    </head> <body>
+    <h1>Two-Player Chess</h1>
+    <div class="chessboard">
+    <!-- Create the chessboard squares -->
+    <!-- 'w' and 'b' represent white and black pieces, respectively -->
+    <!-- 'k' for king, 'q' for queen, 'r' for rook, 'n' for knight, 'b' for bishop, 'p' for pawn -->
+    <div <div <div <div <div <div <div <div
+    <div <div <div <div <div <div <div <div
+    <!-- <!-- <!-- <!--
+    <!-- </div>
+    class="square white">r</div> class="square black">n</div> class="square white">b</div> class="square black">q</div> class="square white">k</div> class="square black">b</div> class="square white">n</div> class="square black">r</div>
+    class="square black">p</div> class="square white">p</div> class="square black">p</div> class="square white">p</div> class="square black">p</div> class="square white">p</div> class="square black">p</div> class="square white">p</div>
+    Add empty squares -->
+    There are 64 squares in total -->
+    Change the color of the squares by adding 'white' or 'black' classes --> Add appropriate chess piece characters as needed -->
+    Repeat the above squares to create the full chessboard -->

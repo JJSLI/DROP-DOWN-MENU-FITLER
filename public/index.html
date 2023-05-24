@@ -30,9 +30,46 @@
   </nav>
 
   <section id="section1">
-    <h2>Tracking</h2>
-    <p> this will be where all the filters the user can enter will be</p>
-  </section>
+  
+    <!-- Create a filter feature for post-run tracking -->
+    <!-- Learned how to create input fields for each tracking item -->
+      
+    <h2> Track my Run</h2>
+    
+    <div class="form-group">  
+      <!--Location-->
+      <h3>Location:</h3>
+      <div class = "location-images">
+      <img src="indoor.jpg" alt="Indoor Run" id="Indoor-Run-Image">
+      <img src="outdoor.jpg" alt="Outdoor Run" id="Outdoor-Run-Image">
+      </div> 
+      <!--Filters-->
+    <div class="form-group"> 
+        <h3>Track My Run</h3>
+        <label for="intensity"> Intensity: </label>
+        <input type="text" id="intensity" placeholder="Enter Intensity">
+    </div>
+      
+    <div class="form-group"> 
+        <label for="distance"> Distance of Run: </label>
+        <input type="text" id="intensity" placeholder ="Enter Intensity">
+    </div>
+      
+    <div class="form-group"> 
+        <label for="calories"> Calories burned (kCal): </label>
+        <input type="number" id="calories" placeholder="Enter kCals burned (optional)">
+    </div>
+      
+    <div class="form-group"> 
+          <label for="rating">During my run, I felt... </label>
+          <textarea id="rating" placeholder="Enter your rating"></textarea>
+    </div>
+    
+      <!-- Create a button to finalise/respond to user inpit -->
+    <div class="form-group"> 
+      <button id="create-log">Create Log </button>
+    </div>
+    </section>
 
  <section id="section2">
     <h2>My Run History</h2>

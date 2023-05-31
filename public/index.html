@@ -1,93 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>RunMate</title>
+  <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <header>
-    <h1>RunMate</h1>
-  </header>
+<!-- Change this heading to a logo.png later --> 
+<header>
+  <h1>RunMate</h1></header>
 
-<!-- Create a Navigation Bar for users to control which part of the webpage is showed-->
-  <nav>
-    <a href="section1"> Tracking</a>
-    <a href="section2"> My Run History</a>
-    <a href="section3"> My Progress</a>
-  </nav>
-
-  <section id="section1">
+<!-- Create a nav bar for users to fast-forward to different parts of the webpage -->
+<nav>
+  <ul>
+    <li><a href = "#section1">Tracking</a></li>
+    <li><a href = "#section2">My Run History</a></li>
+    <li><a href = "#section3">My Progress</a></li>
+  </ul>
   
-    <!-- Create a filter feature for post-run tracking -->
-    <!-- Learned how to create input fields for each tracking item -->
-      
-    <h2> Track my Run</h2>
-    
-    <div class="form-group">  
-      <!--Location-->
-      <h3>Location:</h3>
-      <div class = "location-images">
-      <img src="indoor.jpg" alt="Indoor Run" id="Indoor-Run-Image">
-      <img src="outdoor.jpg" alt="Outdoor Run" id="Outdoor-Run-Image">
-      </div> 
-      <!--Filters-->
-    <div class="form-group"> 
-        <h3>Track My Run</h3>
-        <label for="intensity"> Intensity: </label>
-        <input type="text" id="intensity" placeholder="Enter Intensity">
-    </div>
-      
-    <div class="form-group"> 
-        <label for="distance"> Distance of Run: </label>
-        <input type="text" id="intensity" placeholder ="Enter Intensity">
-    </div>
-      
-    <div class="form-group"> 
-        <label for="calories"> Calories burned (kCal): </label>
-        <input type="number" id="calories" placeholder="Enter kCals burned (optional)">
-    </div>
-      
-    <div class="form-group"> 
-          <label for="rating">During my run, I felt... </label>
-          <textarea id="rating" placeholder="Enter your rating"></textarea>
-    </div>
-    
-      <!-- Create a button to finalise/respond to user inpit -->
-    <div class="form-group"> 
-      <button id="create-log">Create Log </button>
-    </div>
-    </section>
+</nav>
 
- <section id="section2">
-    <h2>My Run History</h2>
-    <p> This will be a history of all users runs with a popup of their tracking items/p>
-  </section>
+<section id="introduction">
+  <h2>Welcome to RunMate</h2>
+  <p>Track your running activities and moniter your progress!</p>
+</section>
 
- <section id="section3">
-    <h2>My Progress</h2>
-    <p> This will be where the user can track separate items over a period of time</p>
-  </section>
+<!-- Create sections for Filters-->
+
+<!-- Location filter with images as buttons and figcaptions --> 
+<section id="location">
+  <h2>Location: </h2>
+  <div class="location-images">
+    
+    <figure>
+    <img src="location-images/indoor.jpg" alt="Indoor">
+    <figcaption>Indoor Run</figcaption>
+  </figure>
+  
+    <figure>
+    <img src="location-images/outdoor.jpg" alt="Outdoor">
+    <figcaption>Outdoor Run</figcaption>
+  </figure>
+  </div>
+</section>
+
+    
+<!-- Create a filter feature for post-run tracking -->
+<!-- Learned how to create input fields for each tracking item -->
+<section id="tracking">
+<h2> Track my Run</h2>
+
+<div class="form-group">  
+  <!-- Title (Required Field) -->
+    <label for=""> Title</label>
+    <input type="text" id="title" required>
+</div>
+
+<div class="form-group">  
+  <!-- Intensity (Required Field) -->
+    <label for="Intensity"> Intensity: </label>
+  <select id="intensity" required>
+      <option value="select" selected disabled> Select Intensity </option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+  </select>
+</div>
+
+<div class="form-group">  
+  <!-- Distance (Required Field) -->
+    <label for="Distance"> Distance(km):</label>
+    <input type="number" id="distance" required>
+</div>
+
+<div class="form-group">  
+  <!-- Calories (Optional Field) -->
+    <label for="Calories"> Calories (Optional): </label>
+    <input type="number" id="calories">
+</div>
+
+
+<div class="form-group"> 
+      <p>Share your thoughts on your recent run:</p>
+      <input type="textarea" textarea id="rating-text" placeholder="Enter your text"></textarea>
+</div>
+  <!-- Create a button to finalise/respond to user inpit -->
+<div class="form-group"> 
+  <button id="create-log">Create Log </button>
+</div>
+</section>
+
+
+<section id="logs">
+  <h2>Run Logs</h2>
+  <div id="log-container">
+
+<!--log entries iwll be added here after user presses create log -->
+  </div>
+
+  <!-- BUTTONS FOR ARROWS) -->
+
+  <div class="carousel-container">
+    <div class="carousel-arrow-left-arrow">&#8249; </div>
+    <div class= "carousel-arrow right-arrow">&#8250;</div>
+  </div>
+
+</section>
+
+<!-- Create arrows to guide users to swape between run history. &lt; stands for lesser than (<) symbol and, the &gt; sign stands for greater than (>) symbol . -->
+<!-- Lesser than or swipe left button
+  <button class="carousel-arrow left-arrow"
+    onclick="slideCarousel('left')">&lt;</button>
+ -->
+<!-- greater than button or swipe right button -->
 
   
-   
+<!-- <button class="carousel-arrow right-arrow"
+    onclick="slideCarousel('right')">&gt;</button>
+  </div>
+</div>
+  -->
+<!-- Popup for overview of post-runcontent -->
+<!--<div class="popup" id="popup">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()">&times;
+    </button>
+    
+    <h3 id="popup-title"></h3>
+    <h4 id="popup-subtitle">subtitle with date </h4>
+    <p> insert post-run-selfie</p>
+    
+    <div class="popup-info">
+      
+      <h4>Intensity:</h4>
+      <p id="popup-intensity">Intensity></p>
+      
+      <h4>Distance:</h4>
+      <p id="popup-distance">Distance></p>
+      
+      <h4>Calories:</h4>
+      <p id="calories">Calories></p>
+      
+      <h4>Rating</h4>
+      <p id="rating">Rating:</p>
+      
+    </div>
+  </div>
+</div>
+  
+</section>
+-->
+<!-- Section 3: Progress tracking -->
+
+<section id="section3">
+  <h2>My Progress</h2>
+
+<!-- Create my progress bar -->
+
+  
+  <div class="progress-container">
+    <div class="progress-group">
+      <h3>Intensity</h3>
+      <p class="average-data">This Week: <span id="intensity-this-week"></span></p>
+      <p class="average-data">Last Week: <span id="intensity-last-week"></span></p>
+      <p class="average-data">Change: <span id="intensity-change"></span></p>
+  </div>
+
+    <div class="progress-group">
+      <h3>Distance</h3>
+      <p class="average-data">This Week: <span id="distance-this-week"></span></p>
+      <p class="average-data">Last Week: <span id="distance-last-week"></span></p>
+      <p class="average-data">Change: <span id="distance-change"></span></p>
+  </div>
+
+    <div class="progress-group">
+      <h3>Calories</h3>
+      <p class="average-data">This Week: <span id="calories-this-week"></span></p>
+      <p class="average-data">Last Week: <span id="calories-last-week"></span></p>
+      <p class="average-data">Change: <span id="calories-change"></span></p>
+  </div>
+
+    <div class="progress-group">
+      <h3>Rating</h3>
+      <p class="average-data">This Week: <span id="rating-this-week"></span></p>
+      <p class="average-data">Last Week: <span id="rating-last-week"></span></p>
+      <p class="average-data">Change: <span id="rating-change"></span></p>
+  </div>
+  </div>
+    
+</section>
 
   
   <script src="script.js"></script>
-</body>
-
-</html>
 </body>
 </html>

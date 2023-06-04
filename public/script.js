@@ -1,37 +1,69 @@
-//INSERT 1-2
-
 //Create a new log entry
 function createLogEntry(){
-    //user input values - retrieve
-    var titleInput =
+    //user input values - retrieve variables
+    //change all variables to constants
+    const titleInput =
       document.getElementById("title").value;
-    var intensityInput=document.getElementById("intensity").value;
-    var distanceInput=document.getElementById("distance").value;
-    var caloriesInput=document.getElementById("calories").value;
-    var ratingInput=document.getElementById("rating-text").value;
+    const intensityInput=document.getElementById("intensity");
+    const distanceInput=document.getElementById("distance");
+    const caloriesInput=document.getElementById("calories");
+    const ratingInput=document.getElementById("rating-text");
+    const selfieInput=document.getElementById('selfie');
+    //get selected values from tracking section
+    const title=titleInput.value;
+    const intensity=intensityInput.value;
+    const distance=distanceInput.value;
+    const calories=caloriesInput.value;
+    const rating=ratingInput.value;
+    const date=dateInput.value;
   }
-  
-  //INSERT 14-108
-  
-  //Event Listener for submit button
-  
-  const submitBtn = document.getElementById("submitBtn");
-  submitBtn.addEventListener("click",submitSearch);
-  
-  //Event listeners for nav links
-  const navLinks=document.querySelectorAll("nav ul li a");
-  navLinks.forEach((link)=> {link.addEventListener("click",(event) => {
-    event.preventDefault();
-    const targetSectionId = link.getAttribute("href");
-    const targetSection = document.querySelector(targetSectionId);
+
+  //Create a new log entry in a box named log-entry with title, intensity, distance, calories, date, rating and photo if chose to upload
+
+  const logEntry=document.createElement('div');
+    logEntry.className='log-entry';
+
+    const dateElement=document.createElement('p');
+    intensityElement.textContent= 'Intensity:' + intensity;
+    logEntry.appendChild(intensityElement);
+
+    const titleElement=document.create=Element(h4);
+    titleElement.textContent=title;
+    logEntry.appendChild(titleElement);
     
-    targetSection.scrollIntoView({
-      behavior: "smooth"});
-    });
-  });
+  //Create string for Distance name, value, measurement
+    const distanceElement=document.createElement('p');
+    intensityElement.textContent= 'Distance:' + intensity + 'km';
+    logEntry.appendChild(distanceElement);
+
+  //Create string for Calories name, value, measurement name
+    const caloriesElement=document.createElement('p');
+    intensityElement.textContent= 'Calories:' + calories + 'kCal';
+    logEntry.appendChild(intensityElement);
+
+    const ratingElement=document.createElement('p');
+    ratingElement.textContent= 'Rating:' + rating;
+    logEntry.appendChild(ratingElement);
+
+    //Display selfie
+    const reader=new FileReader();
+    reader.onload=function(event){
+      const selfieElement=document.createElement('img');
+      selfieElement.src=event.target.result;
+      selfieElement.alt='Post-run Selfie!'
+//append selfieElement to logEntry using appendChild() method.
+    logEntry.appendChild(selfieElement);
+    };
+  //read data url of file input using 'readAsDataURL() - converting file into data url representation.
+    reader.readAsDataURL(selfieInput.files[0]);
+//append logEntry element to logContainer element using appendChild() method. Adding logEntry and selfieElement to logContainer
+    const logContainer=document.getElementById('log-container');
+    logContainer.appendChild(logEntry);
+
+    //removed event listeners for nav links as already done in html
   
   
-  //Learned to make the arrows in carousel section 2 functional with slide/ease in-out tool
+ 
   
   //setting global variable and initialising the current slide index
   let currentSlide = 0;
@@ -42,32 +74,33 @@ function createLogEntry(){
     const totalSlides = carouselItems.length;
     
   //if statements to control left and right arrows. If left button is pressed, currentSlide would become currentSlide - slide. If right button is pressed, currentSlide would become currentSlide + slide.
-  
     
     if (direction ==='left'){
   currentSlide--;
-      if (current< 0)
-      {currentSlide=totalSlides - 1}
+      if (current< 0){
+        currentSlide=totalSlides - 1;
+      }
     } else if (direction==='right'){
     currentSlide++;
     if (currentSlide === totalSlides){
       currentSlide = 0;
     }
   }
-  
+
   //get width of carousel item-active
   const carouselWidth = carouselItems[0].offsetWidth;
   // calculate translateX value to move the carousel horizontally
   const translateX = currentSlide * -carouselWidth;
   // apply translateX transformation to carousel section
   carousel.style.transform = 'translateX(${translateX}px)';
-  
+}
+
   slideCarousel('left');
-  
+  //Removed popups as they are uncessescary for displaying and updating popup content
   //Update JS code to log info in section 1 and populate popups in section 2 with appropriate values
   function openPopup(index){
     const carouselItems = document.querySelectorAll('.carousel-itemactive');
-    const popup = document.getElementById('popup');
+
   
   //log output from section 1 into console
   const item = carouselItems[index-1];
@@ -139,11 +172,17 @@ function createLogEntry(){
   if (
     !event.target.matches("#view-intensity-btn")&&
   !event.target.matches("#view-distance-btn")&&
-  !event.target.matches(""#view-calories-btn")
+  !event.target.matches("#view-calories-btn")
   ) {
     intensityPopup.style.display = "none";
   distancePopup.style.display = "none";
   caloriesPopup.style.display = "none";
   }
+
+   //create event handler for the create log button
+   document.getElementById ('create-log').addEventListener('click',function(event){
+    createLogEntry();
+  });
+
   });
   

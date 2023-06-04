@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -16,11 +16,12 @@
 <!-- Create a nav bar for users to fast-forward to different parts of the webpage -->
 <nav>
   <ul>
-    <li><a href = "#section1">Tracking</a></li>
-    <li><a href = "#section2">My Run History</a></li>
-    <li><a href = "#section3">My Progress</a></li>
+<!-- Changed href tags to location, tracking, logs and progress to more accurately reflect section names-->
+    <li><a href = "location">Location</a></li>
+    <li><a href = "#tracking">Tracking</a></li>
+    <li><a href = "#logs">My Run History</a></li>
+    <li><a href = "#progress">My Progress</a></li>
   </ul>
-  
 </nav>
 
 <section id="introduction">
@@ -34,7 +35,6 @@
 <section id="location">
   <h2>Location: </h2>
   <div class="location-images">
-    
     <figure>
     <img src="location-images/indoor.jpg" alt="Indoor">
     <figcaption>Indoor Run</figcaption>
@@ -55,7 +55,7 @@
 
 <div class="form-group">  
   <!-- Title (Required Field) -->
-    <label for=""> Title</label>
+    <label for=""> Name your run</label>
     <input type="text" id="title" required>
 </div>
 
@@ -87,16 +87,33 @@
       <p>Share your thoughts on your recent run:</p>
       <input type="textarea" textarea id="rating-text" placeholder="Enter your text"></textarea>
 </div>
-  <!-- Create a button to finalise/respond to user inpit -->
-<div class="form-group"> 
-  <button id="create-log">Create Log </button>
+
+<!-- Add an auto-filled form where users can see the date the log is being created-->
+<div class="form-group">
+  <label for="tracking-date"> Date:</label>
+  <input type="text" id="tracking-date" readonly>
 </div>
+
+<!-- Add an option for users to upload a post-run selfie-->
+
+<div class=""form-group">
+  <label for="selfie"> Upload a Selfie post-run (Optional): </label>
+  <input type="file" id="selfie" accept="image/*">
+</div>
+  <!-- Create a button to finalise/respond to user inpit -->
+
+  <button id="create-log">Create Log </button>
+
 </section>
 
 
 <section id="logs">
   <h2>Run Logs</h2>
-  <div id="log-container">
+  <div id="log-list">  <!-- Create a section where logs from tracking section will be dynamically generated and inserted-->
+  </div>
+
+  <button id="load-logs">Load Logs</button>
+  </section>
 
 <!--log entries iwll be added here after user presses create log -->
   </div>
@@ -110,49 +127,6 @@
 
 </section>
 
-<!-- Create arrows to guide users to swape between run history. &lt; stands for lesser than (<) symbol and, the &gt; sign stands for greater than (>) symbol . -->
-<!-- Lesser than or swipe left button
-  <button class="carousel-arrow left-arrow"
-    onclick="slideCarousel('left')">&lt;</button>
- -->
-<!-- greater than button or swipe right button -->
-
-  
-<!-- <button class="carousel-arrow right-arrow"
-    onclick="slideCarousel('right')">&gt;</button>
-  </div>
-</div>
-  -->
-<!-- Popup for overview of post-runcontent -->
-<!--<div class="popup" id="popup">
-  <div class="popup-content">
-    <button class="close-btn" onclick="closePopup()">&times;
-    </button>
-    
-    <h3 id="popup-title"></h3>
-    <h4 id="popup-subtitle">subtitle with date </h4>
-    <p> insert post-run-selfie</p>
-    
-    <div class="popup-info">
-      
-      <h4>Intensity:</h4>
-      <p id="popup-intensity">Intensity></p>
-      
-      <h4>Distance:</h4>
-      <p id="popup-distance">Distance></p>
-      
-      <h4>Calories:</h4>
-      <p id="calories">Calories></p>
-      
-      <h4>Rating</h4>
-      <p id="rating">Rating:</p>
-      
-    </div>
-  </div>
-</div>
-  
-</section>
--->
 <!-- Section 3: Progress tracking -->
 
 <section id="section3">

@@ -16,7 +16,7 @@ function createLogEntry(){
     const calories=caloriesInput.value;
     const rating=ratingInput.value;
     const date=dateInput.value;
-  }
+
 
   //Create a new log entry in a box named log-entry with title, intensity, distance, calories, date, rating and photo if chose to upload
 
@@ -24,11 +24,18 @@ function createLogEntry(){
     logEntry.className='log-entry';
 
     const dateElement=document.createElement('p');
-    intensityElement.textContent= 'Intensity:' + intensity;
-    logEntry.appendChild(intensityElement);
+    dateElement.textContent= 'Date:' + date;
+    logEntry.appendChild(dateElement);
 
-    const titleElement=document.create=Element(h4);
-    titleElement.textContent=title;
+    document.addEventListener("DOMContentLoaded", function(){
+      var dateField = document.getElementById("date");
+      new DatePicker(dateField,{
+        minDate: new Date(new Date().setMonth(new Date().getMonth() - 1))
+      });
+    });
+
+    const titleElement=document.create=Element('h4');
+    titleElement.textContent='title' + title;
     logEntry.appendChild(titleElement);
     
   //Create string for Distance name, value, measurement
@@ -62,9 +69,37 @@ function createLogEntry(){
 
     //removed event listeners for nav links as already done in html
   
+    //CALCULATE averages for the previous week and current week.
   
- 
-  
+    //Clear input fields
+
+    titleInput.value='';
+    dateInput.value='select';
+    distanceInput.value='';
+    caloriesInput.value='';
+    ratingInput.value='';
+    selfieInput.value='';
+  }
+
+  function calculateAverages(){
+    //retreive all log entries
+    const logEntries=document.getElementsByClassName('log-entry');
+
+    //Initialise variables for the current week / previous week
+    let currentWeek={
+      intensitySum:0,
+      distanceSum:0,
+      caloriesSum:0,
+      ratingSum:0;
+    };
+    let previousWeek={
+      intensitySum:0,
+      distanceSum:0,
+      caloriesSum:0,
+      ratingSum:0;
+    }
+  }
+
   //setting global variable and initialising the current slide index
   let currentSlide = 0;
   

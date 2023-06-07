@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -16,55 +17,82 @@
 <!-- Create a nav bar for users to fast-forward to different parts of the webpage -->
 <nav>
   <ul>
-<!-- Changed href tags to location, tracking, logs and progress to more accurately reflect section names-->
-    <li><a href = "location">Location</a></li>
+<!-- Changed href tags to tracking, logs and progress to more accurately reflect section names-->
+    <li><a href = "#about">About</a></li> 
     <li><a href = "#tracking">Tracking</a></li>
     <li><a href = "#logs">My Run History</a></li>
     <li><a href = "#progress">My Progress</a></li>
   </ul>
 </nav>
 
-<section id="introduction">
-  <h2>Welcome to RunMate</h2>
-  <p>Track your running activities and moniter your progress!</p>
+<section id="about">
+  <div class="content-wrapper">
+    <h1> Welcome to RunMate</h1>
+    <p class="intro-content">RunMate allows you to track your running activities and moniter your progress as you go. Record your runs and view a breakdown of your fitness journey.</p>
+  </div>
+</section>
+<!-- Create an about section for the web application and its tracking-->
+<section id="fixed-about">
+  <div class="fixed-about-row">
+    <article class="artice-intensity">
+      <h3>INTENSITY</h3>
+    </article>
+    <br>
+    <p>As the intensity of your workouts increases over time, it indicates improvements in cardiovascular fitness and endurance.</p>
+  </div>
+  <div class="fixed-about-row">
+    <article class="artice-distance">
+      <h3>DISTANCE</h3>
+      <br>
+      <p>The distance you run indicates your ability to cover more ground and potentially increase stamina and endurance.</p>
+    </article>
+  </div>
+  <div class="fixed-about-row">
+    <article class="artice-distance">
+      <h3>CALORIES</h3>
+      <br>
+      <p>Calories burned during your run can be indicative of the energy expenditure and metabolic impact of the exercise. Download RunMate on your Fitness Tracker to gauge the intensity and efficiency of your workouts.</p>
+    </article>
+  </div>
 </section>
 
 <!-- Create sections for Filters-->
 
 <!-- Location filter with images as buttons and figcaptions --> 
-<section id="location">
-  <h2>Location: </h2>
-  <div class="location-images">
-    <figure>
-    <img src="location-images/indoor.jpg" alt="Indoor">
-    <figcaption>Indoor Run</figcaption>
-  </figure>
-  
-    <figure>
-    <img src="location-images/outdoor.jpg" alt="Outdoor">
-    <figcaption>Outdoor Run</figcaption>
-  </figure>
-  </div>
-</section>
-
-    
 <!-- Create a filter feature for post-run tracking -->
 <!-- Learned how to create input fields for each tracking item -->
 <section id="tracking">
 <h2> Track my Run</h2>
 
-<div class="form-group">
-  <label for ="Date">Date of Run</label>
-  <input type="text" id="date" readonly>
+<!-- learned to create image button https://www.scaler.com/topics/image-button-in-html/#:~:text=To%20make%20an%20image%20button%20in%20HTML%2C%20we%20will%20use,will%20be have%20like%20a%20button.
+https://www.dofactory.com/html/button/id-->
+
+<div class="location-images">
+
+  <figure>
+  <img src="location-images/indoor.jpg" alt="Indoor">
+  <button id="indoorRun">Indoor Run</button>
+</figure>
+
+  <figure>
+  <img src="location-images/outdoor.jpg" alt="Outdoor">
+  <button id="outdoorRun"> Outdoor Run</button>
+</figure>
+
 </div>
 
-<div class="form-group">  
+<!-- <div class="form-group"> -->
+  <label for ="Date">Date of Run</label>
+  <input type="date" id="date" readonly>
+<br>
+
+<div class="form-group"> 
   <!-- Title (Required Field) -->
     <label for="Title"> Name your run</label>
     <input type="text" id="title" required>
-</div>
+  </div>
 
-<div class="form-group">  
+<div class="form-group">
   <!-- Intensity (Required Field) -->
     <label for="Intensity"> Intensity: </label>
   <select id="intensity" required>
@@ -73,105 +101,122 @@
           <option>Medium</option>
           <option>High</option>
   </select>
+  <label for="Intensity"> Intensity:</label>
+  <select id="intensity" required>
+  <input type="number" id="distance" required>
+  <option value="low">Low</option>
+  <option value="medium">Medium</option>
+  <option value="high">High</option>
+</select>
 </div>
 
-<div class="form-group">  
+
+<div class="form-group">
   <!-- Distance (Required Field) -->
     <label for="Distance"> Distance(km):</label>
     <input type="number" id="distance" required>
-</div>
-
-<div class="form-group">  
-  <!-- Calories (Optional Field) -->
-    <label for="Calories"> Calories (Optional): </label>
-    <input type="number" id="calories">
-</div>
-
+  </div>
 
 <div class="form-group"> 
-      <p>Share your thoughts on your recent run:</p>
-      <input type="textarea" textarea id="rating-text" placeholder="Enter your text"></textarea>
-</div>
+  <!-- Calories (Optional Field) -->
+    <label for="Calories"> Calories (Optional): </label>
+    <input type="number" id="calories" required>
+  </div>
 
-<!-- Add an auto-filled form where users can see the date the log is being created-->
-<div class="form-group">
-  <label for="tracking-date"> Date:</label>
-  <input type="text" id="tracking-date" readonly>
+
+ <div class="form-group"> 
+  <label for ="rating">Rating text: </label>
+      <p>Share your thoughts on your recent run:</p>
+      <textarea id="rating-text" placeholder="Enter your text"></textarea>
 </div>
 
 <!-- Add an option for users to upload a post-run selfie-->
 
-<div class=""form-group">
+<div class="form-group">
   <label for="selfie"> Upload a Selfie post-run (Optional): </label>
   <input type="file" id="selfie" accept="image/*">
 </div>
-  <!-- Create a button to finalise/respond to user inpit -->
+  <!-- Create a button to finalise/respond to user input -->
 
   <button id="create-log">Create Log </button>
-
 </section>
 
 
 <section id="logs">
   <h2>Run Logs</h2>
-  <div id="log-list">  <!-- Create a section where logs from tracking section will be dynamically generated and inserted-->
+  <div id="log-container">  <!-- Create a section where logs from tracking section will be dynamically generated and inserted-->
   </div>
 
-  <button id="load-logs">Load Logs</button>
-  </section>
-
-<!--log entries iwll be added here after user presses create log -->
-
-  <!-- BUTTONS FOR ARROWS) -->
+  <!-- BUTTONS FOR ARROWS -->
 
   <div class="carousel-container">
     <div class="carousel-arrow-left-arrow">&#8249; </div>
-    <div class= "carousel-arrow right-arrow">&#8250;</div>
+    <div class= "carousel-arrow-right-arrow">&#8250;</div>
   </div>
 
 </section>
 
 <!-- Section 3: Progress tracking -->
-
 <section id="progress">
-  <h2>My Progress</h2>
-
+<h1> Track my Progress:</h1>
 <!-- Create my progress bar -->
+<!-- Create popup pages for intensity, distance and calories that appear when the user clicks on corresponding boxes.-->
+<div class="progress-container">
+  <h2>Intensity</h2>
+  <p>Track the intensity of your workouts here: </p>
+  <div class="popup-subjects">
+    <button id="toggle-intensity" onclick="toggleIntensityContent()">View Intensity</button> 
+    </div>
+  </div>
 
-  
+  <div class="overlay hidden" id="intensity-overlay">
+    <div class="popup">
+      <h3>Intensity Popup</h3>
+      <p class="average-data">This Week: <span id="intensity-average"></span></p>
+      <p class="previous-data">Last Week: <span id="intensity-previous"></span></p>
+      <!-- Place close button inside the popup-->
+      <button id="close-intensity"> Close </button>
+    </div>
+  </div>
+
   <div class="progress-container">
-    <div class="progress-group">
-      <h3>Intensity</h3>
-      <p class="average-data">This Week: <span id="intensity-this-week"></span></p>
-      <p class="average-data">Last Week: <span id="intensity-last-week"></span></p>
-      <p class="average-data">Change: <span id="intensity-change"></span></p>
+    <h2>Distance</h2> 
+    <p>Track the Distance of your workouts here: </p>
+    <div class="popup-subjects">
+      <button id="toggle-distance" onclick="toggleDistanceContent()">View Distance</button> 
+      </div>
+    </div>
+  
+    <div class="overlay hidden" id="distance-overlay">
+      <div class="popup">
+        <h3>Distance Popup</h3>
+        <p class="average-data">This Week: <span id="distance-average"></span></p>
+        <p class="previous-data">Last Week: <span id="distance-previous"></span></p>
+        <!-- Place close button inside the popup-->
+        <button id="close-distance"> Close </button>
+      </div>
+    </div>
+<!-- moved the intensity-popup content inside the progress-container-->
+
+<div class="progress-container">
+  <h2>Calories</h2>
+  <p>Track the Calories of your workouts here: </p>
+  <div class="popup-subjects">
+    <button id="toggle-calories" onclick="toggleCaloriesContent()">View Calories</button> 
+    </div>
   </div>
 
-    <div class="progress-group">
-      <h3>Distance</h3>
-      <p class="average-data">This Week: <span id="distance-this-week"></span></p>
-      <p class="average-data">Last Week: <span id="distance-last-week"></span></p>
-      <p class="average-data">Change: <span id="distance-change"></span></p>
-  </div>
-
-    <div class="progress-group">
-      <h3>Calories</h3>
-      <p class="average-data">This Week: <span id="calories-this-week"></span></p>
-      <p class="average-data">Last Week: <span id="calories-last-week"></span></p>
-      <p class="average-data">Change: <span id="calories-change"></span></p>
-  </div>
-
-    <div class="progress-group">
-      <h3>Rating</h3>
-      <p class="average-data">This Week: <span id="rating-this-week"></span></p>
-      <p class="average-data">Last Week: <span id="rating-last-week"></span></p>
-      <p class="average-data">Change: <span id="rating-change"></span></p>
-  </div>
+  <div class="overlay hidden" id="calories-overlay">
+    <div class="popup">
+      <h3>Calories Popup</h3>
+      <p class="average-data">This Week: <span id="calories-average"></span></p>
+      <p class="previous-data">Last Week: <span id="calories-previous"></span></p>
+      <!-- Place close button inside the popup-->
+      <button id="close-calories"> Close </button>
+    </div>
   </div>
     
 </section>
 
-  
-  <script src="script.js"></script>
 </body>
 </html>

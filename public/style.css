@@ -1,10 +1,13 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
     padding: 20px;
+    background-color:RGB(111,137,128,100);
   }
   
   /* header */
   header {
+    color:RGB(232,248,123,100);
     text-align: center;
     margin: 20px;
   }
@@ -18,50 +21,78 @@ body {
     display: flex;
     justify-content: center;
   }
-  
+
   nav li {
     margin: 10px;
   }
   
   nav a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
-  
+  /* change colour of links when hovering*/
+  nav a:hover {
+    color: RGB(232,248,123,100);
+  }
+
+  tracking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    margin:20px;
+    text-align: center;
+  }
+
   /* Create responsive sizing for images*/
   .location-images {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:nowrap;
+    text-align: center;
+    color: white;
   }
   
   .location-images img {
     /* flex: 1; */
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
     border-radius: 25px;
+  }
+
+  .location-images img:hover {
+    /* flex: 1; */
+    opacity:80%;
   }
   
   section {
     border-radius: 25px;
-    background-color: rgba(1, 173, 164, 0.5);
+    background-color: RGB(232,248,123,100);
     border-color: black;
     border: 5px solid #ffffff;
     padding: 20px;
     margin-bottom: 20px;
   }
-  
-  #run-rating {
-    margin-bottom: 20px;
-  }
-  
+
   #rating-text {
-    width: 100%;
+    width: 95%;
     height: 50px;
-    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 20px;
   }
+
+  .log-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
   
   .form-group {
     margin-bottom: 20px;
+    padding:10px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: white;
   }
   
   button {
@@ -77,6 +108,8 @@ body {
     color: #404040;
     background-color: #75d775;
   }
+
+  
   
   /* align-items to top, justify content by horizomally centering the caorusel items */
   
@@ -86,19 +119,19 @@ body {
     width: auto;
     height: auto;
     display: flex;
-    justify-content: center;
+    flex-wrap:nowrap;
+    justify-content: space-between;
     align-items: flex-start;
+    border: 1px solid white;
+    padding: 20px;
   }
+  
   
   .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
-  
+    flex-wrap:nowrap;
   }
-  
-  
-  
-  .carousel-item.active {}
   
   /*  translateY repositions an element vertically on the 2D plane */
   .carousel-arrow {
@@ -118,28 +151,91 @@ body {
     border-color: green;
     background-color: white;
   } 
+
+
+ .carousel-arrow {
+  font-size: 30px;
+  line-height:30px;
+  width:30px;
+  height:30px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+ }
   
-  .left-arrow {
-    left: 20px;
+.carousel-arrow-left-arrow{
+  font-size: 30px;
+  line-height:30px;
+  width:30px;
+  height:30px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  /* Rotate left arrow 180 degrees so that it is flipped.*/
+  transform:rotateX('180');
+}
+.carousel-arrow-right-arrow{
+font-size: 30px;
+line-height:30px;
+width:30px;
+height:30px;
+color: black;
+text-align: center;
+cursor: pointer;
+}
+
+.carousel-arrow-right-arrow:hover{
+  color:RGB(232,248,123,100);
+}
+.carousel-arrow-left-arrow:hover{
+  color:RGB(232,248,123,100);
+}
+
+
+#log-container {
+  display:flex;
+  /*flex item stays in single line without wrapping into next line*/
+  flex-wrap:nowrap;
+  /*enable horizontal scrolling when content is greater than container width*/
+  overflow-x:scroll;
+  scroll-snap-type: x mandatory;
+  /* setting boundaries between items and edge of scrolling container*/
+  scroll-padding: 10px;
+  margin-bottom: 20px;
+}
+
+  .progress {
+  text-align: center;
+ 
   }
   
-  .right-arrow {
-    right: 20px;
-  }
-  
-  .progress-container {
+  .progress-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin-top: 10px;
   }
-  
-  .progress-group {
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px;
+
+
+  /*popup container overlay*/
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+    background-color:#ffffff;
+    z-index: 9999;
+  }
+
+  .hidden {
+    display:none;
+  }
+
+  .popup {
+    background-color: white
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 400px;
     text-align: center;
   }
-  
-  .
+
+
+

@@ -53,7 +53,8 @@
     logEntry.appendChild(ratingElement);
 
     //Process and Display selfie
-    //update progress ection
+    //update as image progress section by creating new img element
+    //
    const reader = new FileReader();
    reader.onload = function(event){
     const selfieElement = document.createElement("img");
@@ -79,8 +80,8 @@
 
     //create log message to console indicating whether the run was completed indoors or outdoors when the user presses outdoor run vs indoor run
   const indoorRun = document.getElementById("indoorRun");
-  indoorRun.addEventListener("click", function())
-  }
+  indoorRun.addEventListener("click", function(){
+  });
 
 //get popup box element
 const intensityBoxContent = document.querySelector(".intensity-box-content");
@@ -98,11 +99,12 @@ viewTrackingButton.addEventListener("click", function(){
 //Initially, hide the content inside 'intensity-popup'. when the user clicks on the "toggle intensity" button, it will toggle the visibility of the content by adding/removing hidden class
 const toggleIntensityButton=document.getElementById("toggle-intensity");
 const intensityOverlay = document.getElementById(".intensity-overlay");
-const closeIntensityButton = document.getElementById("close-intensity");
 
+const closeIntensityButton = document.getElementById("close-intensity");
 //add event listener to close button inside intensity popup
 closeIntensityButton.addEventListener("click", function(){
 //hide intesntiy overlay
+const intensityOverlay = document.getElementById("intensity-overlay");
 intensityOverlay.classList.add("hidden");
 });
 
@@ -128,10 +130,10 @@ document.getElementById("create-log").addEventListener("click",createLogEntry);
 
 document.addEventListener("DOMContentLoaded",function(){
   const viewTrackingButton = document.getElementById("toggle-intensity");
-  const intensityOverlay = document.getElementById("intensity-overlay");
-
   viewTrackingButton.addEventListener("click",function(){
-    intensityOverlay.classList.toggle("hidden");
+    //show intensity overlay popup
+  const intensityOverlay = document.getElementById("intensity-overlay");
+    intensityOverlay.classList.remove("hidden");
   })
 });
 //submit create log button and output from tracking section to log section

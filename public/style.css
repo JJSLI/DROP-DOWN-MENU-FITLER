@@ -3,6 +3,8 @@ body {
     margin: 20px;
     padding: 20px;
     background-color:RGB(111,137,128,100);
+    display: flex;
+    flex-direction: column;
   }
   
   /* header */
@@ -44,6 +46,12 @@ body {
     text-align: center;
   }
 
+  .about {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
   /* Create responsive sizing for images*/
   .location-images {
     display: flex;
@@ -66,8 +74,7 @@ body {
   
   section {
     border-radius: 25px;
-    background-color: RGB(232,248,123,100);
-    border-color: black;
+    background-color: whitesmoke;
     border: 5px solid #ffffff;
     padding: 20px;
     margin-bottom: 20px;
@@ -75,10 +82,11 @@ body {
 
   #rating-text {
     width: 95%;
-    height: 50px;
+    height: 100px;
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   .log-container {
@@ -91,24 +99,27 @@ body {
     margin-bottom: 20px;
     padding:10px;
     border-radius: 20px;
-    border: 1px solid white;
+    border: 1x solid white;
     background-color: white;
+    box-shadow: 10px 5px 5px lightgray;
   }
   
   button {
-    background-color: #7ddeb1;
-    color: white;
+    background-color: RGB(232,248,123,100);
+    color: black;
     padding: 10px 20px;
     margin: 10px;
-    border: none;
+    border: 1x solid white;
+    border-radius: 20px;
     cursor: pointer;
+    box-shadow: 10px 5px 5px lightgray;
   }
   
   button:hover {
-    color: #404040;
-    background-color: #75d775;
+    color: whitesmoke;
   }
 
+  /* styling the popup for view progress section */
   
   
   /* align-items to top, justify content by horizomally centering the caorusel items */
@@ -124,6 +135,7 @@ body {
     align-items: flex-start;
     border: 1px solid white;
     padding: 20px;
+    box-shadow: 10px 5px 5px lightgray;
   }
   
   
@@ -174,25 +186,25 @@ body {
   /* Rotate left arrow 180 degrees so that it is flipped.*/
   transform:rotateX('180');
 }
-.carousel-arrow-right-arrow{
-font-size: 30px;
-line-height:30px;
-width:30px;
-height:30px;
-color: black;
-text-align: center;
-cursor: pointer;
-}
+  .carousel-arrow-right-arrow{
+  font-size: 30px;
+  line-height:30px;
+  width:30px;
+  height:30px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  }
 
-.carousel-arrow-right-arrow:hover{
+  .carousel-arrow-right-arrow:hover{
   color:RGB(232,248,123,100);
 }
-.carousel-arrow-left-arrow:hover{
+  .carousel-arrow-left-arrow:hover{
   color:RGB(232,248,123,100);
 }
 
 
-#log-container {
+  #log-container {
   display:flex;
   /*flex item stays in single line without wrapping into next line*/
   flex-wrap:nowrap;
@@ -213,6 +225,19 @@ cursor: pointer;
     display: flex;
   }
 
+  .progress-box{
+    flex: 1;
+    text-align: center;
+  }
+
+
+  .progress-container h2 {
+    margin-top: 0;
+  }
+  .progress-container p {
+    margin-bottom: 0;
+  }
+
 
   /*popup container overlay*/
   .overlay {
@@ -220,7 +245,7 @@ cursor: pointer;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%
+    height: 100%;
     background-color:#ffffff;
     z-index: 9999;
   }
@@ -230,7 +255,7 @@ cursor: pointer;
   }
 
   .popup {
-    background-color: white
+    background-color: white;
     padding: 20px;
     border-radius: 20px;
     max-width: 400px;
